@@ -10,6 +10,8 @@ export const useShoppingCartUi = () => {
   const [cartItem, setCartItem] = useState<CartItem[]>([]);
 
   const addCart = (itemCount: number, item: CartItem["item"]) => {
+    if (itemCount <= 0) return;
+
     const addedItem = cartItem.find((cartItem) => {
       return cartItem.item.name === item.name;
     });

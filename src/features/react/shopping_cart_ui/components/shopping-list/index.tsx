@@ -29,6 +29,8 @@ export const ShoppingList = ({ addCart }: ShoppingListProps) => {
 
             <input
               type="number"
+              min={0}
+              max={99}
               className="border border-deepMocha rounded-sm w-10 text-center"
               onChange={(e) => {
                 handleChange(e);

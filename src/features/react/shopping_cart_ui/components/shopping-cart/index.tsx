@@ -23,7 +23,7 @@ export const ShoppingCart = ({ cartItem }: ShoppingCartProps) => {
       <div className="bg-lavenderCloud rounded-md p-2 flex flex-col gap-3">
         <div className="border-b border-dustyRose">
           <p className="font-bold">合計：{totalCount}個</p>
-          <p className="font-bold">合計金額：{totalCount}円</p>
+          <p className="font-bold">合計金額：{totalPrice}円</p>
         </div>
 
         {cartItem.map((item) => (
