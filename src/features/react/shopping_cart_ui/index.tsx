@@ -6,7 +6,7 @@ import { ShoppingCart } from "./components/shopping-cart";
 import { useShoppingCartUi } from "./hooks";
 
 export const ShoppingCartUi = () => {
-  const { addCart, cartItem } = useShoppingCartUi();
+  const { addCart, cartItem, setCartItem } = useShoppingCartUi();
 
   return (
     <div className="flex flex-col gap-8 p-4">
@@ -33,7 +33,7 @@ export const ShoppingCartUi = () => {
       <div className="flex flex-col gap-4">
         <ShoppingList addCart={addCart} />
 
-        <ShoppingCart cartItem={cartItem} />
+        <ShoppingCart cartItem={cartItem} setCartItem={setCartItem} />
       </div>
     </div>
   );
