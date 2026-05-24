@@ -21,7 +21,7 @@ export const TabContainer = () => {
     <div className="tab-ui tabs tabs-border">
       <input
         type="radio"
-        name="my_tabs_2"
+        name="incomplete"
         className="tab"
         aria-label="Tab 1"
         checked={activeTab === "incomplete"}
@@ -33,7 +33,7 @@ export const TabContainer = () => {
 
       <input
         type="radio"
-        name="my_tabs_2"
+        name="completed"
         className="tab"
         aria-label="Tab 2"
         checked={activeTab === "completed"}
