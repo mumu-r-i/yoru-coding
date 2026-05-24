@@ -1,0 +1,11 @@
+/* tab_ui ルート専用（Tailwind / DaisyUI は app/globals.css で読み込み済み） */
+
+/* 未選択タブの文字色（DaisyUI 既定の 50% 透過を上書き） */
+.tab-ui > .tab:not(:checked) {
+  color: var(--color-deepMocha);
+}
+
+.tab-ui > .tab:checked {
+  color: var(--color-deepMocha);
+  font-weight: 600;
+}
