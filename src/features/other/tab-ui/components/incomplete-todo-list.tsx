@@ -1,5 +1,3 @@
-"use client";
-
 import { INCOMPLETE_TODO_LIST } from "../constants";
 
 export const IncompleteTodoList = () => {

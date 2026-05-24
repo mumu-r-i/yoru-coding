@@ -1,5 +1,3 @@
-"use client";
-
 import { COMPLETED_TODO_LIST } from "../constants";
 
 export const CompletedTodoList = () => {

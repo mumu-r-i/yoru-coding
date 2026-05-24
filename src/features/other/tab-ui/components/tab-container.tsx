@@ -1,20 +1,20 @@
 "use client";
-
 import dynamic from "next/dynamic";
+import { useState } from "react";
+import { IncompleteTodoList } from "./incomplete-todo-list";
 
+/** 毎renderで定義されるのを防ぐためcomponent外に定義する */
+const CompletedTodoList = dynamic(
+  () => import("./completed-todo-list").then((mod) => mod.CompletedTodoList),
+  {
+    loading: () => <p>Loading...</p>,
+  },
+);
+
+/** 初期表示で必要のないものだけをdynamic importするべきなのでタブ2のみ */
 export const TabContainer = () => {
-  const IncompleteTodoList = dynamic(
-    () =>
-      import("./incomplete-todo-list").then((mod) => mod.IncompleteTodoList),
-    {
-      ssr: false,
-    },
-  );
-  const CompletedTodoList = dynamic(
-    () => import("./completed-todo-list").then((mod) => mod.CompletedTodoList),
-    {
-      ssr: false,
-    },
+  const [activeTab, setActiveTab] = useState<"incomplete" | "completed">(
+    "incomplete",
   );
 
   return (
@@ -24,15 +24,23 @@ export const TabContainer = () => {
         name="my_tabs_2"
         className="tab"
         aria-label="Tab 1"
-        defaultChecked
+        checked={activeTab === "incomplete"}
+        onChange={() => setActiveTab("incomplete")}
       />
       <div className="tab-content bg-lavenderCloud p-10">
-        <IncompleteTodoList />
+        {activeTab === "incomplete" && <IncompleteTodoList />}
       </div>
 
-      <input type="radio" name="my_tabs_2" className="tab" aria-label="Tab 2" />
+      <input
+        type="radio"
+        name="my_tabs_2"
+        className="tab"
+        aria-label="Tab 2"
+        checked={activeTab === "completed"}
+        onChange={() => setActiveTab("completed")}
+      />
       <div className="tab-content bg-lavenderCloud p-10">
-        <CompletedTodoList />
+        {activeTab === "completed" && <CompletedTodoList />}
       </div>
     </div>
   );
