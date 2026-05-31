@@ -20,7 +20,7 @@ export const Zindex = () => {
           <p>
             →親要素でopacityをかけているのでz-indexで退避はできない🙅‍♀️
             <br />
-            ①さらに親要素のdivタグを追加
+            ①CardUiとToolTipの親要素になるdivタグを追加
             <br />
             ②has()を使用して、ボタンhover時にツールチップのopacityを切り替える
           </p>
